@@ -74,5 +74,5 @@ spring:
   application:
     name: product-service
   config:
-    import: "optional:configserver:http://localhost:8080"
+    import: "optional:configserver:http://configserver-service:80"
     fail-fast: true
