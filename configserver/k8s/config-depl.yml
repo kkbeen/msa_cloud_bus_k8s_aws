@@ -18,7 +18,7 @@ spec:
         - name: configserver-container
           image: 512138915880.dkr.ecr.us-east-2.amazonaws.com/configserver:latest
           ports:
-          - containerPort: 8888
+          - containerPort: 8080
 ---
 apiVersion: v1
 kind: Service
@@ -29,6 +29,6 @@ spec:
   type: ClusterIP
   ports:
   - port: 80
-    targetPort: 8888
+    targetPort: 8080
   selector:
     app: configserver
