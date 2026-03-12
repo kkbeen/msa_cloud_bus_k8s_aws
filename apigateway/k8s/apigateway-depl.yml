@@ -24,6 +24,7 @@ spec:
         - name: apigateway-container
           # ecr 경로
           image: 512138915880.dkr.ecr.us-east-2.amazonaws.com/apigateway:latest
+          imagePullPolicy: Always
 
           ports:
           - containerPort: 8080
