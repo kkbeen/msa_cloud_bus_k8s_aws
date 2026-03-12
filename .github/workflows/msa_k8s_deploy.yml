@@ -39,6 +39,21 @@ jobs:
 
       - name: aws ecr login
         uses: aws-actions/amazon-ecr-login@v1
+      
+      # configserver
+      - name: image build and push docker image to ecr (configserver)
+        env:
+            REGISTRY: 512138915880.dkr.ecr.us-east-2.amazonaws.com
+            REPOSITORY: configserver
+            IMAGE_TAG: latest
+        run: |
+            docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG -f ./configserver/Dockerfile ./configserver
+            docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
+
+      - name: eks kubectl configserver apply
+        run: |
+            kubectl apply -f ./configserver/k8s/config-depl.yml
+            kubectl rollout restart deployment configserver-deployment -n lgcns
 
       # image 생성하고 ecr push까지 자동화
       # apigtaeway

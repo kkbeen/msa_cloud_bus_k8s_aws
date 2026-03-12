@@ -67,3 +67,17 @@ jobs:
       - name: check services
         run: |
           kubectl get svc -n lgcns
+      
+      # RabbitMQ 배포
+      - name: deploy rabbitmq
+        run: |
+          kubectl apply -f ./k8s/msa-rabbitmq.yml
+
+      # 배포 확인
+      - name: check pods
+        run: |
+          kubectl get pods -n lgcns
+
+      - name: check services
+        run: |
+          kubectl get svc -n lgcns
