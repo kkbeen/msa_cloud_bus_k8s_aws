@@ -44,7 +44,7 @@ jobs:
       - name: image build and push docker image to ecr (configserver)
         env:
             REGISTRY: 512138915880.dkr.ecr.us-east-2.amazonaws.com
-            REPOSITORY: config-server
+            REPOSITORY: configserver
             IMAGE_TAG: latest
         run: |
             docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG -f ./configserver/Dockerfile ./configserver
