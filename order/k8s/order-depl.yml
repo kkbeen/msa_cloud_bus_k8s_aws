@@ -28,15 +28,15 @@ spec:
 
           ports:
           - containerPort: 8080
-          resources:
-            # 컨테이너가 사용할 수 있는 최대치의 리소스
-            limits:
-              cpu: "1"
-              memory: "500Mi"
-            # 컨테이너가 기동할 때 보장 받는 최소 리소스
-            requests:
-              cpu: "0.5"
-              memory: "500Mi"
+          # resources:
+          #   # 컨테이너가 사용할 수 있는 최대치의 리소스
+          #   limits:
+          #     cpu: "1"
+          #     memory: "500Mi"
+          #   # 컨테이너가 기동할 때 보장 받는 최소 리소스
+          #   requests:
+          #     cpu: "0.5"
+          #     memory: "500Mi"
 
           # secret 작성 후 외부환경변수를 이용해서 
           env: 
